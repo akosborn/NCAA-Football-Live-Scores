@@ -11,14 +11,15 @@ import java.util.Map;
 
 public class GameURL
 {
+    Map<String, Date> hashMap = new LinkedHashMap<>();
+
     public GameURL()
     {
         establishDatabaseConnection();
     }
 
-    public static void establishDatabaseConnection()
+    public void establishDatabaseConnection()
     {
-        Map<String, Date> hashMap = new LinkedHashMap<>();
         try
         {
             String mySQLURL = "jdbc:mysql://localhost:3306/NCAAFootball?" +
@@ -45,5 +46,10 @@ public class GameURL
             conn.close();
         }
         catch (Exception ex) { ex.printStackTrace(); }
+    }
+
+    public Map<String, Date> getHashMap()
+    {
+        return hashMap;
     }
 }
